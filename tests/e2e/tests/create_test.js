@@ -28,22 +28,14 @@ describe('Computer database tests - adding computer', () => {
         element(by.id("discontinued")).sendKeys(discontinuedDate);
     });
 
-    it('Search list', () => {
-        var list = element.all(by.xpath("//*[@id='company']/option")).map((element)=>{
-            element.getText().then(function (cos) {
-                console.log(cos);
+    it('Search for element in list', () => {
+        element.all(by.xpath("//*[@id='company']/option")).map((element)=>{
+            element.getText().then((el) => {
+                if(el == company) {
+                    element.click();
+                }
             });
-            // if(element.getText() == company){
-            //     console.log("====================SUCCESSS==================");
-            //     // element.click();
-            // }
-            // return element.getText();
         });
-
-        // list.then((element)=>{
-        //     console.log("====================SUCCESSS==================");
-        //     console.log(element);
-        // });
     });
 
 
