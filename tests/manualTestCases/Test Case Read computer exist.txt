@@ -1,0 +1,29 @@
+Purpose:
+    Check computer exist in system
+
+Prerequisite:
+    Opened webpage: http://computer-database.herokuapp.com/computers
+
+Test Data:
+    computerName = { ASCI Purple }
+
+Test Steps:
+    Provide <computerName> into „Filter computer name” field
+    Click button „Filter by name”
+    Check if computer list contains <computerName>
+    Click <computerName> on list
+    Title „Edit computer” is visible
+    Value of "Computer name" field equals <computerName>
+    Expected Results:
+    Computer name is displayed in computer list.
+    Computer name is displayed in edit window.
+
+Actual Results:
+    Computer name is displayed in computer list.
+    Computer name is displayed in edit window.
+
+Result:
+    Pass
+
+Comments:
+    No bugs found

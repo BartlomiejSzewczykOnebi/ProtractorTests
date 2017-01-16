@@ -1,0 +1,36 @@
+Purpose: 
+    Adding new computer
+
+Prerequisite: 
+    webpage: http://computer-database.herokuapp.com/computers
+
+Test Data: 
+    computerName = { Blue Dragon }
+    introducedDate = { 2016-08-10 }
+    discontinuedDate = { 2017-01-05  }
+    company = { IBM }
+
+Test Steps:
+    Click button "Add a new computer"
+    Title "Add a computer" is visible
+    Provide <computerName> into "Computer name" field
+    Provide <introducedDate> into "Introduced date" field
+    Provide <discontinuedDate> into "Discontinued date" field
+    Choose <company> from companies list
+    Click button "Create this computer"
+    Message "Done! Computer " + <computerName> + " has been created" is displayed
+    Provide <computerName> into "Filter computer name" field
+    Click button "Filter by name"
+    Check if computer list contains <computerName>
+
+Expected Results:
+    Computer successfully added to computers list.
+
+Actual Results:
+    Computer successfully added to computers list.
+
+Result:
+    Pass
+
+Comments: 
+    No bugs found
