@@ -1,0 +1,35 @@
+Purpose: 
+    Adding new computer - validation
+
+Prerequisite: 
+    webpage: http://computer-database.herokuapp.com/computers
+
+Test Data: 
+    computerName = { empty }
+    introducedDate = { 20160810 }
+    discontinuedDate = { 20170105 }
+
+Test Steps:
+    Click button "Add a new computer"
+    Title "Add a computer" is visible
+    Field "Computer name" has validation message "Required"
+    Field "Introduced date" has validation message "Date ('yyyy-MM-dd')"
+    Field "Discontinued date" has validation message "Date ('yyyy-MM-dd')"
+    Provide <introducedDate> into "Introduced date" field
+    Provide <discontinuedDate> into "Discontinued date" field
+    Click button "Create this computer"
+    Field "Computer name" is highlighted on red
+    Field "Introduced date" is highlighted on red
+    Field "Discontinued date" is highlighted on red
+
+Expected Results:
+    After filling form with empty or incorrect values, fields: "Computer name", "Introduced date", "Discontinued date" are highlighted on red.
+
+Actual Results:
+    After filling form with empty or incorrect values, fields: "Computer name", "Introduced date", "Discontinued date" are highlighted on red.
+
+Result:
+    Pass
+
+Comments: 
+    No bugs found
