@@ -1,10 +1,11 @@
+'use strict';
 var ComputersDatabaseList = require("../pages/computers_database_list_page.js");
 var ComputersDatabaseEdit = require("../pages/edit_delete_computer_page.js");
 
 describe('Computer database tests - check computer name', function () {
     browser.ignoreSynchronization = true;
-    computersDatabaseListPage = new ComputersDatabaseList();
-    computersDatabaseEdit = new ComputersDatabaseEdit();
+    var computersDatabaseListPage = new ComputersDatabaseList();
+    var computersDatabaseEdit = new ComputersDatabaseEdit();
 
     var computerName = "Black Moon";
 
