@@ -5,7 +5,7 @@ var ComputersDatabaseList = function () {
 };
 
 ComputersDatabaseList.prototype = Object.create({}, {
-    filterBox: { get: function () { return element(by.id('searchbox')); }},
+    filterBox: { get: function ()  { return element(by.id('searchbox')); }},
     filterButton: { get: function () { return element(by.id('searchsubmit')); }},
     computersList: { get: function () { return element.all(by.xpath("//table[contains(@class,'computers')]/tbody/tr/td/a")); }},
     filterList: { value: function (keys) {
