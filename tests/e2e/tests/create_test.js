@@ -1,9 +1,9 @@
 describe('Computer database tests - adding computer', () => {
 
     browser.ignoreSynchronization = true;
-    let computerName = "Blue Dragon";
-        introducedDate = "2016-08-10";
-        discontinuedDate = "2017-01-05";
+    let computerName = "Blue Dragon",
+        introducedDate = "2016-08-10",
+        discontinuedDate = "2017-01-05",
         company = "IBM";
 
     it('Open webpage', () => {
