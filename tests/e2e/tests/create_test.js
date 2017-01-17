@@ -1,9 +1,17 @@
+'use strict';
 require("../helpers/page_helpers.js");
 require("../lib/constans.js");
+var AddComputerPage = require("../pages/add_computer_page.js");
+
 
 describe('Computer database tests - adding computer', () => {
-
     browser.ignoreSynchronization = true;
+    var addComputerPage;
+
+    beforeEach(() =>{
+        addComputerPage = new AddComputerPage();
+    });
+
     var computerName = "Blue Dragon",
         introducedDate = "2016-08-10",
         discontinuedDate = "2017-01-05",
@@ -19,8 +27,7 @@ describe('Computer database tests - adding computer', () => {
     });
 
     it('Header text is Add a computer', () => {
-        let header = findElement("//*[@id='main']/h1", BY.XPATH);
-        expect(header.getText()).toEqual('Add a computer', "Header doesn't equals text: Add a computer.");
+        expect(addComputerPage.headerText).toEqual('Add a computer', "Header doesn't equals text: Add a computer.");
     });
 
     it('Type text into input elements', () => {

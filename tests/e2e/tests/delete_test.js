@@ -1,7 +1,7 @@
 describe("Computer database tests - delete computer", () => {
 
     browser.ignoreSynchronization = true;
-    let computerName = "Black Moon";
+    let computerName = "Blue Dragon";
 
     it("Open webpage", () => {
         browser.get("http://computer-database.herokuapp.com/computers");
