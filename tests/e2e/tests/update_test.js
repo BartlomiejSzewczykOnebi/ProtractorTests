@@ -1,6 +1,17 @@
+'use strict';
+require("../helpers/page_helpers.js");
+require("../lib/constans.js");
+var EditDeleteComputerPage = require("../pages/add_computer_page.js");
+
 describe("Computer database tests - update computer", () => {
 
     browser.ignoreSynchronization = true;
+    var addComputerPage;
+
+    beforeEach(() =>{
+        addComputerPage = new AddComputerPage();
+    });
+
     let computerName = "IBM 7030";
         introducedDate = "1961-01-01";
         discontinuedDate = "";
