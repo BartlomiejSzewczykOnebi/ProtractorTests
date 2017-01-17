@@ -1,7 +1,7 @@
 describe("Computer database tests - delete computer", () => {
 
     browser.ignoreSynchronization = true;
-    let computerName = "5Z1jHhcJA3";
+    let computerName = "Black Moon";
 
     it("Open webpage", () => {
         browser.get("http://computer-database.herokuapp.com/computers");
@@ -19,12 +19,18 @@ describe("Computer database tests - delete computer", () => {
     });
 
     it("Search for element in list", () => {
-        element.all(by.xpath("//*[@id='main']/table/tbody/tr/td[1]/a")).map((element)=>{
-            element.getText().then((text) => {
-                if(text == computerName) {
-                    element.click();
-                }
+        var listContainsValue = false;
+
+        element.all(by.xpath("//table[contains(@class,'computers')]/tbody/tr/td/a")).each((element) => {
+            element.getText().then((text)=> {
+                if (text == computerName)
+                    listContainsValue = true;
             });
+
+            return listContainsValue;
+        }).then(()=> {
+            expect(listContainsValue).toBe(true, "List of computers not contain expected value: '" + computerName + "'.");
+            element.all(by.xpath("//table[contains(@class,'computers')]/tbody/tr/td/a")).first().click();
         });
     });
 
