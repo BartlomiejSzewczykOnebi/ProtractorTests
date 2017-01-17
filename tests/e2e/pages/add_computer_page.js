@@ -1,5 +1,6 @@
 'use strict';
 require("../helpers/page_helpers.js");
+require("../lib/constants.js");
 
 var AddComputerPage = function () {};
 
