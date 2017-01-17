@@ -2,28 +2,25 @@
 require("../helpers/page_helpers.js");
 require("../lib/constants.js");
 var AddComputerPage = require("../pages/add_computer_page.js");
+var ComputersDatabaseList = require("../pages/computers_database_list_page.js");
 
 
 describe('Computer database tests - adding computer', () => {
     browser.ignoreSynchronization = true;
-    var addComputerPage;
-
-    beforeEach(() =>{
-        addComputerPage = new AddComputerPage();
-    });
+    var computersDatabaseListPage = new ComputersDatabaseList();
+    var addComputerPage = new AddComputerPage();
 
     var computerName = "Blue Dragon",
         introducedDate = "2016-08-10",
         discontinuedDate = "2017-01-05",
         company = "IBM";
 
-    it('Open webpage', () => {
-        browser.get('http://computer-database.herokuapp.com/computers');
-        expect(browser.getTitle()).toEqual("Computers database", "Web page title doesn't equals text: Computers database.");
+    it('Window text is Computers database', () => {
+        expect(browser.getTitle()).toEqual("Computers database");
     });
 
-    it('Click add', () => {
-        click("add");
+    it('Click add new computer', () => {
+        computersDatabaseListPage.clickAddNewComputerButton();
     });
 
     it('Header text is Add a computer', () => {
@@ -45,44 +42,31 @@ describe('Computer database tests - adding computer', () => {
         addComputerPage.clickCreateComputer();
     });
 
-    it('Search for a computer', () => {
-        typeValue(computerName, "searchbox");
-        click("searchsubmit");
+    it('Filter list is not empty', () => {
+        computersDatabaseListPage.filterList(computerName);
+        expect(computersDatabaseListPage.computersList.count()).toBeGreaterThan(0);
     });
 
-    it('Search for element on list and click it', () => {
-        let listContainsValue = false;
-
-        element.all(by.xpath("//table[contains(@class,'computers')]/tbody/tr/td/a")).each((element)=>{
-            element.getText().then((el) => {
-                if(el == computerName) {
-                    listContainsValue = true;
-                }
-            });
-        }).then(() => {
-            expect(listContainsValue).toBe(true, "No computer named " + computerName + " found on list");
-        });
+    it('Filtered list contains expected value', () => {
+        expect(computersDatabaseListPage.computersList.getText()).toContain(computerName);
     });
 });
 
 describe('Computer database tests - adding computer validation', () => {
 
     browser.ignoreSynchronization = true;
-    var addComputerPage;
+    var computersDatabaseListPage = new ComputersDatabaseList();
+    var addComputerPage = new AddComputerPage();
 
-    beforeEach(() =>{
-        addComputerPage = new AddComputerPage();
-    });
     var introducedDate = "20160810",
         discontinuedDate = "20170105";
 
     it('Open webpage', () => {
-        browser.get(WEBPAGE_URL.COMPUTER_DATABASE);
         expect(browser.getTitle()).toEqual("Computers database", "Web page title doesn't equals text: Computers database.");
     });
 
-    it('Click add button', () => {
-        click("add");
+    it('Click add new computer', () => {
+        computersDatabaseListPage.clickAddNewComputerButton();
     });
 
     it('Header text is Add a computer', () => {
