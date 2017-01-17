@@ -1,4 +1,6 @@
 'use strict';
+require("../helpers/page_helpers.js");
+require("../lib/constants.js");
 
 var ComputersDatabaseList = function () {
     browser.get('http://computer-database.herokuapp.com/computers');
