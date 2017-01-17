@@ -1,5 +1,6 @@
 'use strict';
 require("../helpers/page_helpers.js");
+require("../lib/constants.js");
 
 var EditDeleteComputerPage = function () {};
 
@@ -16,30 +17,30 @@ EditDeleteComputerPage.prototype = Object.create({}, {
     changeComputerName: { value: function (computerName) {
     	this.computerNameInput.clear();
         this.computerNameInput.sendKeys(computerName);
-    }}
+    }},
 
     changeIntroducedDate: { value: function (introducedDate) {
     	this.introducedDateInput.clear();
         this.introducedDateInput.sendKeys(introducedDate);
-    }}
+    }},
 
     changeDiscontinuedDate: { value: function (discontinuedDate) {
     	this.discontinuedDateInput.clear();
         this.discontinuedDateInput.sendKeys(discontinuedDate);
-    }}
+    }},
 
     changeCompany: { value: function (company) {
     	this.companyInput.clear();
         this.companyInput.sendKeys(company);
-    }}
+    }},
 
     clickSave: { value: function () {
         this.saveButton.click();
-    }}
+    }},
 
     clickCancel: { value: function () {
         this.cancelButton.click();
-    }}
+    }},
 
     clickDelete: { value: function () {
         this.deleteButton.click();

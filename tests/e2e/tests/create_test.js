@@ -1,6 +1,6 @@
 'use strict';
 require("../helpers/page_helpers.js");
-require("../lib/constans.js");
+require("../lib/constants.js");
 var AddComputerPage = require("../pages/add_computer_page.js");
 
 
@@ -31,28 +31,18 @@ describe('Computer database tests - adding computer', () => {
     });
 
     it('Type text into input elements', () => {
-        typeValue(computerName, "name");
-        typeValue(introducedDate, "introduced");
-        typeValue(discontinuedDate, "discontinued");
+        addComputerPage.addComputerName(computerName);
+        addComputerPage.addIntroducedDate(introducedDate);
+        addComputerPage.addDiscontinuedDate(discontinuedDate);
     });
 
     it('Search for element on list and click it', () => {
-        let listContainsValue = false;
-
-        element.all(by.xpath("//*[@id='company']/option")).each((element)=>{
-            element.getText().then((el) => {
-                if(el == company) {
-                    element.click();
-                    listContainsValue = true;
-                }
-            });
-        }).then(() => {
-            expect(listContainsValue).toBe(true, "No company named " + company + " found on list");
-        });
+        expect(addComputerPage.findCompanyOption(company).isPresent()).toBe(true);
+        addComputerPage.findCompanyOption(company).click();
     });
 
     it('Click create this computer', () => {
-        click("//div[@class='actions']/input", BY.XPATH);
+        addComputerPage.clickCreateComputer();
     });
 
     it('Search for a computer', () => {
@@ -78,6 +68,11 @@ describe('Computer database tests - adding computer', () => {
 describe('Computer database tests - adding computer validation', () => {
 
     browser.ignoreSynchronization = true;
+    var addComputerPage;
+
+    beforeEach(() =>{
+        addComputerPage = new AddComputerPage();
+    });
     var introducedDate = "20160810",
         discontinuedDate = "20170105";
 
@@ -91,38 +86,29 @@ describe('Computer database tests - adding computer validation', () => {
     });
 
     it('Header text is Add a computer', () => {
-        let header = findElement("//*[@id='main']/h1", BY.XPATH);
-        expect(header.getText()).toEqual('Add a computer', "Header doesn't equals text: Add a computer.");
+        expect(addComputerPage.headerText).toEqual('Add a computer', "Header doesn't equals text: Add a computer.");
     });
 
     it('Check validation texts', () => {
-        let validationTextComputerName = findElement("//*[@id='name']/following-sibling::span", BY.XPATH);
-        expect(validationTextComputerName.getText()).toEqual("Required", "Validation text doesn't equals text: Required.");
 
-        let validationTextIntroducedDate = findElement("//*[@id='introduced']/following-sibling::span", BY.XPATH);
-        expect(validationTextIntroducedDate.getText()).toEqual("Date ('yyyy-MM-dd')", "Validation text doesn't equals text: Date ('yyyy-MM-dd').");
-
-        let validationTextDiscontinuedDate = findElement("//*[@id='discontinued']/following-sibling::span", BY.XPATH);
-        expect(validationTextDiscontinuedDate.getText()).toEqual("Date ('yyyy-MM-dd')", "Validation text doesn't equals text: Date ('yyyy-MM-dd').");
+        expect(addComputerPage.computerNameValidationText).toEqual("Required", "Validation text doesn't equals text: Required.");
+        expect(addComputerPage.introducedDateValidationText).toEqual("Date ('yyyy-MM-dd')", "Validation text doesn't equals text: Date ('yyyy-MM-dd').");
+        expect(addComputerPage.discontinuedDateValidationText).toEqual("Date ('yyyy-MM-dd')", "Validation text doesn't equals text: Date ('yyyy-MM-dd').");
     });
 
     it('Type text into input elements', () => {
-        typeValue(introducedDate, "introduced");
-        typeValue(discontinuedDate, "discontinued");
+        addComputerPage.addIntroducedDate(introducedDate);
+        addComputerPage.addDiscontinuedDate(discontinuedDate);
     });
 
     it('Click create this computer button', () => {
-        click("//div[@class='actions']/input", BY.XPATH);
+        addComputerPage.clickCreateComputer();
     });
 
     it('Check if validation appear', () => {
-        let validationComputerName = findElement("//*[@for='name']/parent::div", BY.XPATH);
-        expect(validationComputerName.getAttribute('class')).toContain("error", "Field doesn't show validation");
 
-        let validationIntroducedDate = findElement("//*[@for='introduced']/parent::div", BY.XPATH);
-        expect(validationIntroducedDate.getAttribute('class')).toContain("error", "Field doesn't show validation");
-
-        let validationDiscontinuedDate = findElement("//*[@for='discontinued']/parent::div", BY.XPATH);
-        expect(validationDiscontinuedDate.getAttribute('class')).toContain("error", "Field doesn't show validation");
+        expect(addComputerPage.computerNameValidationClass).toContain("error", "Field doesn't show validation");
+        expect(addComputerPage.introducedDateValidationClass).toContain("error", "Field doesn't show validation");
+        expect(addComputerPage.discontinuedDateValidationClass).toContain("error", "Field doesn't show validation");
     });
 });
