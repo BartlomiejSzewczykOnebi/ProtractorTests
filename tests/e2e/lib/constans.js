@@ -6,7 +6,8 @@ var pageConstans = function() {
     BY = {
         ID: "id",
         XPATH: 'xpath',
-        CSS: 'css'
+        CSS: 'css',
+        CSS_CONTAINING_TEXT: 'css_containing_text'
     }
 };
 
