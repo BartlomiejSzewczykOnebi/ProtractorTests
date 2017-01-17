@@ -19,6 +19,7 @@ describe("Computer database tests - update computer", () => {
     it("Click filter by results", () => {
 
         element(by.id("searchsubmit")).click();
+        click("searchsubmit");
     });
 
     it("Search for element in list", () => {
