@@ -16,6 +16,13 @@ ComputersDatabaseListPage.prototype = Object.create({}, {
         this.filterButton.click();
     }},
     clickComputerNameAt: { value: function (idx) { this.computersList.get(idx).click() }},
+    clickFirstComputerName: { value: function (computerName) {
+        this.computersList.filter(function(elem) {
+            return elem.getText().then(function(text) {
+                return text === computerName;
+            });
+        }).first().click();
+    }},
     clickAddNewComputerButton: { value: function () { this.addNewComputerButton.click() }},
 });
 

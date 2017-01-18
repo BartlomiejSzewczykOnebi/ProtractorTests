@@ -12,68 +12,57 @@ describe("Computer database tests - update computer", () => {
         newComputerName = "Blue Dragon 2",
         introducedDate = "1961-01-01",
         discontinuedDate = "",
-        company = "IBM";
+        company = "Sony";
 
-    //----------------UPDATE------------------------
-    it("Open webpage", () => {
+    it('Open web page and check if window text is \"Computers database\"', () => {
         computersDatabaseListPage.openPage();
         expect(browser.getTitle()).toEqual("Computers database", "Web page title doesn't equals text: Computers database.");
     });
 
-    it("Insert text into search box and filter results", () => {
-        computersDatabaseList.filterList(computerName);
+    it('Filter list is not empty', () => {
+        computersDatabaseListPage.filterList(computerName);
+        expect(computersDatabaseListPage.computersList.count()).toBeGreaterThan(0);
     });
 
-    it("Search for element in list", () => {
-        var els = element.all(by.xpath("//*[@id='main']/table/tbody/tr/td[1]/a"));
-           els.filter(function(elem) {
-            return elem.getText().then(function(text) {
-                return text === computerName;
-            });
-        }).first().click();
+    it('Filtered list contains expected value', () => {
+        expect(computersDatabaseListPage.computersList.getText()).toContain(computerName);
     });
 
     it("Header text is Edit computer", () => {
+        computersDatabaseListPage.clickFirstComputerName(computerName);
         expect(editDeleteComputerPage.headerText.getText()).toEqual("Edit computer");
     });
 
-    it("Provide input elements", () => {
+    it('Fill the computer form, save it and check if success message appear', () => {
         editDeleteComputerPage.changeComputerName(newComputerName);
         editDeleteComputerPage.changeIntroducedDate(introducedDate);
         editDeleteComputerPage.changeDiscontinuedDate(discontinuedDate);
-    });
-
-    it("Click Save this computer", () => {
+        expect(editDeleteComputerPage.findCompanyOption(company).isPresent()).toBe(true);
+        editDeleteComputerPage.findCompanyOption(company).click();
         editDeleteComputerPage.clickSave();
+        expect(editDeleteComputerPage.messageText).toEqual("Done! Computer " + newComputerName + " has been updated",
+            "Text from success message not equals text: Done! Computer " + newComputerName + " has been updated.");
     });
 
-    //----------------CHECK-UPDATE------------------------
-    it("Open webpage", () => {
-        expect(browser.getTitle()).toEqual("Computers database", "Web page title doesn't equals text: Computers database.");
-    });
-
-    it("Insert text into search box and filter results", () => {
+    it('Filter list is not empty', () => {
         computersDatabaseListPage.filterList(newComputerName);
+        expect(computersDatabaseListPage.computersList.count()).toBeGreaterThan(0);
     });
 
-    it("Search for element in list", () => {
-        var els = element.all(by.xpath("//*[@id='main']/table/tbody/tr/td[1]/a"));
-           els.filter(function(elem) {
-            return elem.getText().then(function(text) {
-                return text === newComputerName;
-            });
-        }).first().click();
+    it('Filtered list contains expected value', () => {
+        expect(computersDatabaseListPage.computersList.getText()).toContain(newComputerName);
     });
 
     it("Header text is Edit computer", () => {
+        computersDatabaseListPage.clickFirstComputerName(newComputerName);
         expect(editDeleteComputerPage.headerText.getText()).toEqual("Edit computer");
     });
 
     it("Check input elements", () => {
-        browser.driver.sleep(3000)
         expect(editDeleteComputerPage.computerNameInput.getAttribute('value')).toEqual(newComputerName);
         expect(editDeleteComputerPage.introducedDateInput.getAttribute('value')).toEqual(introducedDate);
         expect(editDeleteComputerPage.discontinuedDateInput.getAttribute('value')).toEqual(discontinuedDate);
+        expect(editDeleteComputerPage.companyInput.getAttribute('value')).toEqual(company);
     });
 
     afterAll(function (){

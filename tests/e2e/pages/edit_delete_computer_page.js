@@ -19,6 +19,7 @@ EditDeleteComputerPage.prototype = Object.create({}, {
     computerNameValidationClass: {get: () => {return findElement("//*[@for='name']/parent::div", BY.XPATH).getAttribute('class')}},
     introducedDateValidationClass: {get: () => {return findElement("//*[@for='introduced']/parent::div", BY.XPATH).getAttribute('class')}},
     discontinuedDateValidationClass: {get: () => {return findElement("//*[@for='discontinued']/parent::div", BY.XPATH).getAttribute('class')}},
+    messageText: {get: () => { return findElement("//div[@class='alert-message warning']", BY.XPATH).getText()}},
 
     clearComputerName: { value: function () {
         this.computerNameInput.clear();
@@ -42,6 +43,9 @@ EditDeleteComputerPage.prototype = Object.create({}, {
     changeCompany: { value: function (company) {
     	this.companyInput.clear();
         this.companyInput.sendKeys(company);
+    }},
+    findCompanyOption: { value: function (company) {
+        return findElement('option', BY.CSS_CONTAINING_TEXT, company)
     }},
 
     clickSave: { value: function () {
