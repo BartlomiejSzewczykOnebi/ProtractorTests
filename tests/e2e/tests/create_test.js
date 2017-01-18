@@ -13,39 +13,29 @@ describe('Computer database tests - adding computer', () => {
         discontinuedDate = "2017-01-05",
         company = "IBM";
 
-    it('Window text is Computers database', () => {
-        expect(browser.getTitle()).toEqual("Computers database");
+    it('Check if window text is \"Computers database\"', () => {
+        expect(browser.getTitle()).toEqual("Computers database", "Web page title doesn't equals text: Computers database.");
     });
 
-    it('Click add new computer', () => {
+    it('Click \"add new computer\" button and check if header text is \"Add a computer\"', () => {
         computersDatabaseListPage.clickAddNewComputerButton();
-    });
-
-    it('Header text is Add a computer', () => {
         expect(addComputerPage.headerText).toEqual('Add a computer', "Header doesn't equals text: Add a computer.");
     });
 
-    it('Type text into input elements', () => {
+    it('Fill the computer form, save it and check if success message appear', () => {
         addComputerPage.addComputerName(computerName);
         addComputerPage.addIntroducedDate(introducedDate);
         addComputerPage.addDiscontinuedDate(discontinuedDate);
-    });
-
-    it('Search for element on list and click it', () => {
         expect(addComputerPage.findCompanyOption(company).isPresent()).toBe(true);
         addComputerPage.findCompanyOption(company).click();
-    });
-
-    it('Click create this computer', () => {
         addComputerPage.clickCreateComputer();
+        expect(addComputerPage.messageText).toEqual("Done! Computer " + computerName + " has been created",
+            "Text from success message not equals text: Done! Computer " + computerName + " has been created.");
     });
 
-    it('Filter list is not empty', () => {
+    it('Check if computer is displayed on list', () => {
         computersDatabaseListPage.filterList(computerName);
         expect(computersDatabaseListPage.computersList.count()).toBeGreaterThan(0);
-    });
-
-    it('Filtered list contains expected value', () => {
         expect(computersDatabaseListPage.computersList.getText()).toContain(computerName);
     });
 });
@@ -59,15 +49,12 @@ describe('Computer database tests - adding computer validation', () => {
     var introducedDate = "20160810",
         discontinuedDate = "20170105";
 
-    it('Open webpage', () => {
+    it('Check if window text is \"Computers database\"', () => {
         expect(browser.getTitle()).toEqual("Computers database", "Web page title doesn't equals text: Computers database.");
     });
 
-    it('Click add new computer', () => {
+    it('Click \"add new computer\" button and check if header text is \"Add a computer\"', () => {
         computersDatabaseListPage.clickAddNewComputerButton();
-    });
-
-    it('Header text is Add a computer', () => {
         expect(addComputerPage.headerText).toEqual('Add a computer', "Header doesn't equals text: Add a computer.");
     });
 
@@ -78,17 +65,10 @@ describe('Computer database tests - adding computer validation', () => {
         expect(addComputerPage.discontinuedDateValidationText).toEqual("Date ('yyyy-MM-dd')", "Validation text doesn't equals text: Date ('yyyy-MM-dd').");
     });
 
-    it('Type text into input elements', () => {
+    it('Fill the form, click \"create this computer\" button and check if validation appear', () => {
         addComputerPage.addIntroducedDate(introducedDate);
         addComputerPage.addDiscontinuedDate(discontinuedDate);
-    });
-
-    it('Click create this computer button', () => {
         addComputerPage.clickCreateComputer();
-    });
-
-    it('Check if validation appear', () => {
-
         expect(addComputerPage.computerNameValidationClass).toContain("error", "Field doesn't show validation");
         expect(addComputerPage.introducedDateValidationClass).toContain("error", "Field doesn't show validation");
         expect(addComputerPage.discontinuedDateValidationClass).toContain("error", "Field doesn't show validation");

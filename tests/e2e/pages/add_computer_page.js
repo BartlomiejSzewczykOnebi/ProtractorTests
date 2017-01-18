@@ -16,6 +16,7 @@ AddComputerPage.prototype = Object.create({}, {
     computerNameValidationClass: {get: () => {return findElement("//*[@for='name']/parent::div", BY.XPATH).getAttribute('class')}},
     introducedDateValidationClass: {get: () => {return findElement("//*[@for='introduced']/parent::div", BY.XPATH).getAttribute('class')}},
     discontinuedDateValidationClass: {get: () => {return findElement("//*[@for='discontinued']/parent::div", BY.XPATH).getAttribute('class')}},
+    messageText: {get: () => { return findElement("//div[@class='alert-message warning']", BY.XPATH).getText()}},
 
     //*******************************functions********************************//
     addComputerName: { value: function (computerName) {
