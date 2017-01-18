@@ -3,7 +3,7 @@ require("../helpers/page_helpers.js");
 require("../lib/constants.js");
 
 var ComputersDatabaseList = function () {
-    browser.get('http://computer-database.herokuapp.com/computers');
+  //  browser.get('http://computer-database.herokuapp.com/computers');
 };
 
 ComputersDatabaseList.prototype = Object.create({}, {
@@ -11,7 +11,7 @@ ComputersDatabaseList.prototype = Object.create({}, {
     filterButton: { get: function () { return findElement("searchsubmit")}},
     computersList: { get: function () { return element.all(by.xpath("//table[contains(@class,'computers')]/tbody/tr/td/a")); }},
     addNewComputerButton: { get: function () { return findElement("add")}},
-
+    openPage: { value: function () {  browser.get('http://computer-database.herokuapp.com/computers'); }},
     filterList: { value: function (keys) {
         this.filterBox.sendKeys(keys);
         this.filterButton.click();

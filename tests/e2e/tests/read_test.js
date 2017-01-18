@@ -9,7 +9,8 @@ describe('Computer database tests - check computer name', function () {
 
     var computerName = "Black Moon";
 
-    it('Window text is Computers database', () => {
+    it('Window title is Computers database', () => {
+        computersDatabaseListPage.openPage();
         expect(browser.getTitle()).toEqual("Computers database");
     });
 
@@ -29,5 +30,22 @@ describe('Computer database tests - check computer name', function () {
 
     it("Element value equals to expected", () => {
         expect(computersDatabaseEdit.computerNameInput.getAttribute("value")).toEqual(computerName);
+    });
+});
+
+describe('Computer database tests - check computer name not exist', function () {
+    browser.ignoreSynchronization = true;
+    var computersDatabaseListPage = new ComputersDatabaseList();
+
+    var computerName = "Yelow Moon";
+
+    it('Window title is Computers database', () => {
+        computersDatabaseListPage.openPage();
+        expect(browser.getTitle()).toEqual("Computers database");
+    });
+
+    it('Filter list is empty', () => {
+        computersDatabaseListPage.filterList(computerName);
+        expect(computersDatabaseListPage.computersList.count()).toBe(0);
     });
 });
