@@ -38,25 +38,3 @@ describe('Computer database tests - check computer name', () => {
         browser.executeScript('window.localStorage.clear();');
     });
 });
-
-describe('Computer database tests - check computer name not exist',  () => {
-    browser.ignoreSynchronization = true;
-    var computersDatabaseListPage = new ComputersDatabaseListPage();
-
-    var computerName = "Yelow Moon";
-
-    it('Window title is Computers database', () => {
-        computersDatabaseListPage.openPage();
-        expect(browser.getTitle()).toEqual("Computers database");
-    });
-
-    it('Filter list is empty', () => {
-        computersDatabaseListPage.filterList(computerName);
-        expect(computersDatabaseListPage.computersList.count()).toBe(0);
-    });
-
-    afterAll(function (){
-        browser.executeScript('window.sessionStorage.clear();');
-        browser.executeScript('window.localStorage.clear();');
-    });
-});
