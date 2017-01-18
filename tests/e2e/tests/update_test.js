@@ -62,7 +62,11 @@ describe("Computer database tests - update computer", () => {
         expect(editDeleteComputerPage.computerNameInput.getAttribute('value')).toEqual(newComputerName);
         expect(editDeleteComputerPage.introducedDateInput.getAttribute('value')).toEqual(introducedDate);
         expect(editDeleteComputerPage.discontinuedDateInput.getAttribute('value')).toEqual(discontinuedDate);
-        expect(editDeleteComputerPage.companyInput.getAttribute('value')).toEqual(company);
+        // var index = editDeleteComputerPage.companyInput.getAttribute('value');
+
+        // element(editDeleteComputerPage.companyInput).element(by.css('option:selected')).getText()
+
+        expect(editDeleteComputerPage.companyInput.$('option:checked').getText()).toEqual(company);
     });
 
     afterAll(function (){
