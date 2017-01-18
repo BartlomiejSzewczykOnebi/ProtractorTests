@@ -15,6 +15,13 @@ exports.config = {
         }
     },
     onPrepare: function() {
+        var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+        jasmine.getEnv().addReporter(new SpecReporter({
+            spec: {
+                displayStacktrace: true
+            }
+        }));
+
         var Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
         jasmine.getEnv().addReporter(
             new Jasmine2HtmlReporter({
