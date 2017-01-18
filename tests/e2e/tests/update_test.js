@@ -16,6 +16,7 @@ describe("Computer database tests - update computer", () => {
 
     //----------------UPDATE------------------------
     it("Open webpage", () => {
+        computersDatabaseListPage.openPage();
         expect(browser.getTitle()).toEqual("Computers database", "Web page title doesn't equals text: Computers database.");
     });
 

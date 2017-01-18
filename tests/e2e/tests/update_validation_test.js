@@ -13,6 +13,7 @@ describe('Computer database tests - update computer validation', () => {
         discontinuedDate = "20170105";
 
     it('Open webpage', () => {
+        computersDatabaseListPage.openPage();
         expect(browser.getTitle()).toEqual("Computers database", "Web page title doesn't equals text: Computers database.");
     });
 
