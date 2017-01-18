@@ -13,7 +13,8 @@ describe('Computer database tests - adding computer', () => {
         discontinuedDate = "2017-01-05",
         company = "IBM";
 
-    it('Check if window text is \"Computers database\"', () => {
+    it('Open web page and check if window text is \"Computers database\"', () => {
+        computersDatabaseListPage.openPage();
         expect(browser.getTitle()).toEqual("Computers database", "Web page title doesn't equals text: Computers database.");
     });
 
@@ -38,6 +39,11 @@ describe('Computer database tests - adding computer', () => {
         expect(computersDatabaseListPage.computersList.count()).toBeGreaterThan(0);
         expect(computersDatabaseListPage.computersList.getText()).toContain(computerName);
     });
+
+    afterAll(function (){
+        browser.executeScript('window.sessionStorage.clear();');
+        browser.executeScript('window.localStorage.clear();');
+    });
 });
 
 describe('Computer database tests - adding computer validation', () => {
@@ -49,7 +55,8 @@ describe('Computer database tests - adding computer validation', () => {
     var introducedDate = "20160810",
         discontinuedDate = "20170105";
 
-    it('Check if window text is \"Computers database\"', () => {
+    it('Open web page and check if window text is \"Computers database\"', () => {
+        computersDatabaseListPage.openPage();
         expect(browser.getTitle()).toEqual("Computers database", "Web page title doesn't equals text: Computers database.");
     });
 
@@ -72,5 +79,10 @@ describe('Computer database tests - adding computer validation', () => {
         expect(addComputerPage.computerNameValidationClass).toContain("error", "Field doesn't show validation");
         expect(addComputerPage.introducedDateValidationClass).toContain("error", "Field doesn't show validation");
         expect(addComputerPage.discontinuedDateValidationClass).toContain("error", "Field doesn't show validation");
+    });
+
+    afterAll(function (){
+        browser.executeScript('window.sessionStorage.clear();');
+        browser.executeScript('window.localStorage.clear();');
     });
 });
