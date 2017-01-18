@@ -62,10 +62,6 @@ describe("Computer database tests - update computer", () => {
         expect(editDeleteComputerPage.computerNameInput.getAttribute('value')).toEqual(newComputerName);
         expect(editDeleteComputerPage.introducedDateInput.getAttribute('value')).toEqual(introducedDate);
         expect(editDeleteComputerPage.discontinuedDateInput.getAttribute('value')).toEqual(discontinuedDate);
-        // var index = editDeleteComputerPage.companyInput.getAttribute('value');
-
-        // element(editDeleteComputerPage.companyInput).element(by.css('option:selected')).getText()
-
         expect(editDeleteComputerPage.companyInput.$('option:checked').getText()).toEqual(company);
     });
 
@@ -81,7 +77,7 @@ describe('Computer database tests - update computer validation', () => {
     var computersDatabaseListPage = new ComputersDatabaseListPage();
     var editDeleteComputerPage = new EditDeleteComputerPage();
 
-    var computerName = "Blue Dragon",
+    var computerName = "Blue Dragon 2",
         introducedDate = "20160810",
         discontinuedDate = "20170105";
 
