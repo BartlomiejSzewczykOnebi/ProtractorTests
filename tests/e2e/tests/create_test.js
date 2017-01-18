@@ -1,11 +1,11 @@
 'use strict';
 var AddComputerPage = require("../pages/add_computer_page.js");
-var ComputersDatabaseList = require("../pages/computers_database_list_page.js");
+var ComputersDatabaseListPage = require("../pages/computers_database_list_page.js");
 
 
 describe('Computer database tests - adding computer', () => {
     browser.ignoreSynchronization = true;
-    var computersDatabaseListPage = new ComputersDatabaseList();
+    var computersDatabaseListPage = new ComputersDatabaseListPage();
     var addComputerPage = new AddComputerPage();
 
     var computerName = "Blue Dragon",
@@ -49,7 +49,7 @@ describe('Computer database tests - adding computer', () => {
 describe('Computer database tests - adding computer validation', () => {
 
     browser.ignoreSynchronization = true;
-    var computersDatabaseListPage = new ComputersDatabaseList();
+    var computersDatabaseListPage = new ComputersDatabaseListPage();
     var addComputerPage = new AddComputerPage();
 
     var introducedDate = "20160810",

@@ -2,9 +2,9 @@
 require("../helpers/page_helpers.js");
 require("../lib/constants.js");
 
-var ComputersDatabaseList = function () {};
+var ComputersDatabaseListPage = function () {};
 
-ComputersDatabaseList.prototype = Object.create({}, {
+ComputersDatabaseListPage.prototype = Object.create({}, {
     filterBox: { get: function () { return findElement("searchbox")}},
     filterButton: { get: function () { return findElement("searchsubmit")}},
     computersList: { get: function () { return element.all(by.xpath("//table[contains(@class,'computers')]/tbody/tr/td/a")); }},
@@ -19,4 +19,4 @@ ComputersDatabaseList.prototype = Object.create({}, {
     clickAddNewComputerButton: { value: function () { this.addNewComputerButton.click() }},
 });
 
-module.exports = ComputersDatabaseList;
+module.exports = ComputersDatabaseListPage;

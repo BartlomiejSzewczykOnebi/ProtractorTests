@@ -1,11 +1,11 @@
 'use strict';
-var ComputersDatabaseList = require("../pages/computers_database_list_page.js");
+var ComputersDatabaseListPage = require("../pages/computers_database_list_page.js");
 var ComputersDatabaseEdit = require("../pages/edit_delete_computer_page.js");
 
 describe('Computer database tests - check computer name', () => {
 
     browser.ignoreSynchronization = true;
-    var computersDatabaseListPage = new ComputersDatabaseList();
+    var computersDatabaseListPage = new ComputersDatabaseListPage();
     var computersDatabaseEdit = new ComputersDatabaseEdit();
 
     var computerName = "Black Moon";
@@ -32,11 +32,16 @@ describe('Computer database tests - check computer name', () => {
     it("Element value equals to expected", () => {
         expect(computersDatabaseEdit.computerNameInput.getAttribute("value")).toEqual(computerName);
     });
+
+    afterAll(function (){
+        browser.executeScript('window.sessionStorage.clear();');
+        browser.executeScript('window.localStorage.clear();');
+    });
 });
 
 describe('Computer database tests - check computer name not exist',  () => {
     browser.ignoreSynchronization = true;
-    var computersDatabaseListPage = new ComputersDatabaseList();
+    var computersDatabaseListPage = new ComputersDatabaseListPage();
 
     var computerName = "Yelow Moon";
 
@@ -48,5 +53,10 @@ describe('Computer database tests - check computer name not exist',  () => {
     it('Filter list is empty', () => {
         computersDatabaseListPage.filterList(computerName);
         expect(computersDatabaseListPage.computersList.count()).toBe(0);
+    });
+
+    afterAll(function (){
+        browser.executeScript('window.sessionStorage.clear();');
+        browser.executeScript('window.localStorage.clear();');
     });
 });
