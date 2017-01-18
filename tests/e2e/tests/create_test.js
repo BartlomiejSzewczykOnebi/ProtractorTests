@@ -14,6 +14,7 @@ describe('Computer database tests - adding computer', () => {
         company = "IBM";
 
     it('Check if window text is \"Computers database\"', () => {
+        computersDatabaseListPage.openPage();
         expect(browser.getTitle()).toEqual("Computers database", "Web page title doesn't equals text: Computers database.");
     });
 

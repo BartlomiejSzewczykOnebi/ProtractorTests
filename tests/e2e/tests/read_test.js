@@ -2,7 +2,8 @@
 var ComputersDatabaseList = require("../pages/computers_database_list_page.js");
 var ComputersDatabaseEdit = require("../pages/edit_delete_computer_page.js");
 
-describe('Computer database tests - check computer name', function () {
+describe('Computer database tests - check computer name', () => {
+
     browser.ignoreSynchronization = true;
     var computersDatabaseListPage = new ComputersDatabaseList();
     var computersDatabaseEdit = new ComputersDatabaseEdit();
@@ -33,7 +34,7 @@ describe('Computer database tests - check computer name', function () {
     });
 });
 
-describe('Computer database tests - check computer name not exist', function () {
+describe('Computer database tests - check computer name not exist',  () => {
     browser.ignoreSynchronization = true;
     var computersDatabaseListPage = new ComputersDatabaseList();
 
