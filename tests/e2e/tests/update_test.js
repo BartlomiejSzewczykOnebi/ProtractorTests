@@ -106,17 +106,11 @@ describe('Computer database tests - update computer validation', () => {
         expect(editDeleteComputerPage.discontinuedDateValidationText).toEqual("Date ('yyyy-MM-dd')", "Validation text doesn't equals text: Date ('yyyy-MM-dd').");
     });
 
-    it('Type text into input elements', () => {
+    it('Fill the computer form, click save and check if validation appear', () => {
         editDeleteComputerPage.clearComputerName();
         editDeleteComputerPage.changeIntroducedDate(introducedDate);
         editDeleteComputerPage.changeDiscontinuedDate(discontinuedDate);
-    });
-
-    it("Click Save this computer", () => {
         editDeleteComputerPage.clickSave();
-    });
-
-    it('Check if validation appear', () => {
         expect(editDeleteComputerPage.computerNameValidationClass).toContain("error", "Field doesn't show validation");
         expect(editDeleteComputerPage.introducedDateValidationClass).toContain("error", "Field doesn't show validation");
         expect(editDeleteComputerPage.discontinuedDateValidationClass).toContain("error", "Field doesn't show validation");

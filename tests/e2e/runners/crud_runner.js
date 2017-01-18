@@ -13,8 +13,8 @@ exports.config = {
         'chromeOptions': {
             'args': ['--start-maximized']
         },
-        shardTestFiles: true,
-        maxInstances: 1
+        // shardTestFiles: true,
+        // maxInstances: 1
     },
     jasmineNodeOpts: {
         isVerbose: true,

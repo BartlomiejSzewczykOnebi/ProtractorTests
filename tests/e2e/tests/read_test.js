@@ -22,7 +22,8 @@ describe('Computer database tests - check computer name', () => {
 
     it('Filtered list contains expected value', () => {
         expect(computersDatabaseListPage.computersList.getText()).toContain(computerName);
-        computersDatabaseListPage.clickComputerNameAt(0);
+        // computersDatabaseListPage.clickComputerNameAt(0);
+        computersDatabaseListPage.clickFirstComputerName(computerName);
     });
 
     it("Header text is Edit computer", () => {
