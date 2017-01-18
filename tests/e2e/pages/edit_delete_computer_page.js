@@ -13,6 +13,16 @@ EditDeleteComputerPage.prototype = Object.create({}, {
     saveButton: {get: () => { return findElement("//div[@class='actions']/input",BY.XPATH)}},
     cancelButton: {get: () => { return findElement("//div[@class='actions']/a",BY.XPATH)}},
     deleteButton: {get: () => { return findElement("//form[@class='topRight']/input",BY.XPATH)}},
+    computerNameValidationText: {get: () => {return findElement("//*[@id='name']/following-sibling::span", BY.XPATH).getText()}},
+    introducedDateValidationText: {get: () => {return findElement("//*[@id='introduced']/following-sibling::span", BY.XPATH).getText()}},
+    discontinuedDateValidationText: {get: () => {return findElement("//*[@id='discontinued']/following-sibling::span", BY.XPATH).getText()}},
+    computerNameValidationClass: {get: () => {return findElement("//*[@for='name']/parent::div", BY.XPATH).getAttribute('class')}},
+    introducedDateValidationClass: {get: () => {return findElement("//*[@for='introduced']/parent::div", BY.XPATH).getAttribute('class')}},
+    discontinuedDateValidationClass: {get: () => {return findElement("//*[@for='discontinued']/parent::div", BY.XPATH).getAttribute('class')}},
+
+    clearComputerName: { value: function () {
+        this.computerNameInput.clear();
+    }},
 
     changeComputerName: { value: function (computerName) {
     	this.computerNameInput.clear();
