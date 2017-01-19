@@ -23,11 +23,17 @@ Test Steps:
     Click on "Company" in a table header
     Check if Company list is sorted descending
 
-Actual Results:
+Expected Results:
     Computer list is sorted by "Computer name"
     Computer list is sorted by "Introduced"
     Computer list is sorted by "Discontinued"
     Computer list is sorted by "Company"
+
+Actual Results:
+    Computer list is sorted not by "Computer name"
+    Computer list is sorted not by "Introduced"
+    Computer list is sorted not by "Discontinued"
+    Computer list is sorted not by "Company"
 
 Result:
     Fail
