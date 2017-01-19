@@ -1,0 +1,37 @@
+Purpose:
+	Update computer - validation
+
+Prerequisite:
+	Opened webpage: http://computer-database.herokuapp.com/computers
+
+Test Data:
+	computerName = { Blue Dragon 2 }
+    introducedDate = { 20160810 }
+    discontinuedDate = { 20170105 }
+
+Test Steps:
+	Insert <computerName> into "Filter by computer name..." field
+	Click "Filter by name" button
+	Check if computer list contains <computerName>
+	Click <computerName> on the list
+	Title "Edit computer" is visible
+	Field "Computer name" has validation message "Required"
+    Field "Introduced date" has validation message "Date ('yyyy-MM-dd')"
+    Field "Discontinued date" has validation message "Date ('yyyy-MM-dd')"
+	Clear field "Computer name"
+    Change value of field "Introduced date" into  <introducedDate>
+    Change value of field "Discontinued date" into <discontinuedDate>
+    Choose <company> from companies list
+	Click button "Save this computer"
+	Field "Computer name" is highlighted on red
+    Field "Introduced date" is highlighted on red
+    Field "Discontinued date" is highlighted on red
+
+Expected Results:
+	After filling form with empty or incorrect values, fields: "Computer name", "Introduced date", "Discontinued date" are highlighted on red.
+Actual Results:
+	After filling form with empty or incorrect values, fields: "Computer name", "Introduced date", "Discontinued date" are highlighted on red.
+Result:
+	Pass
+Comments:
+	No bugs found

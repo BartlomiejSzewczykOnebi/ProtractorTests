@@ -5,7 +5,10 @@ Prerequisite:
     Opened webpage: http://computer-database.herokuapp.com/computers
 
 Test Data:
-    computerName = { ASCI Purple }
+    computerName = { Blue Dragon }
+    introducedDate = { 2016-08-10 }
+    discontinuedDate = { 2017-01-05  }
+    company = { IBM }
 
 Test Steps:
     Provide <computerName> into „Filter computer name” field
@@ -14,7 +17,11 @@ Test Steps:
     Click <computerName> on list
     Title „Edit computer” is visible
     Value of "Computer name" field equals <computerName>
-    Expected Results:
+    Value of "Introduced date" field equals <introducedDate>
+    Value of "Discontinued date" field equals <discontinuedDate>
+    Selected value from companies list equals <company>
+
+Expected Results:
     Computer name is displayed in computer list.
     Computer name is displayed in edit window.
 

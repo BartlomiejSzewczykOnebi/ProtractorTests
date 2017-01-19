@@ -1,29 +1,43 @@
 Purpose: 
-	Update computer discontinued date
+	Update computer data
 
 Prerequisite: 
 	Opened webpage: http://computer-database.herokuapp.com/computers
 
 Test Data:
-	computerName = {computer name}
-	discontinuedDate = { discontinued date }
+	computerName = { Blue Dragon }
+	newComputerName = { Blue Dragon 2 }
+    introducedDate = { 2016-08-29 }
+    discontinuedDate = { empty }
+    company = { Sony }
 
 Test Steps:
-	Go To Webpage http://computer-database.herokuapp.com/computers
 	Insert <computerName> into "Filter by computer name..." field
 	Click "Filter by name" button
 	Check if computer list contains <computerName>
 	Click <computerName> on the list
 	Title "Edit computer" is visible
-	Value of "Computer name" field equals <computerName>
-	Insert <discontinuedDate> into "Discontinued date" field
+	Value of "Computer name" field equals <newComputerName>
+	Change value of field "Computer name" into <newComputerName>
+	Change value of field "Introduced date" into  <introducedDate>
+	Change value of field "Discontinued date" into <discontinuedDate>
+	Choose <company> from companies list
 	Click button "Save this computer"
-	Alert "Done! Computer <computerName> has been updated" is visible
+	Alert "Done! Computer <newComputerName> has been updated" is visible
+    Provide <newComputerName> into "Filter computer name" field
+    Click button "Filter by name"
+    Check if computer list contains <newComputerName>
+    Click <newComputerName> on the list
+    Title „Edit computer” is visible
+    Value of "Computer name" field equals <newComputerName>
+    Value of "Introduced date" field equals <introducedDate>
+    Value of "Discontinued date" field equals <discontinuedDate>
+    Selected value from companies list equals <company>
 
 Expected Results:
-	Discontinued date successfully updated
+	Data successfully updated
 Actual Results:
-	Discontinued date successfully updated
+	Data successfully updated
 Result:
 	Pass
 Comments:
