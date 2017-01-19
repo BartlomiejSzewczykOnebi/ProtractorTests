@@ -24,16 +24,24 @@ Test Steps:
     Check if Company list is sorted descending
 
 Expected Results:
-    Computer list is sorted by "Computer name"
-    Computer list is sorted by "Introduced"
-    Computer list is sorted by "Discontinued"
-    Computer list is sorted by "Company"
+   Computer list is sorted by "Computer name” ascending
+   Computer list is sorted by "Computer name” descending
+   Computer list is sorted by "Introduced" ascending
+   Computer list is sorted by "Introduced" descending
+   Computer list is sorted by "Discontinued" ascending
+   Computer list is sorted by "Discontinued" descending
+   Computer list is sorted by "Company" ascending
+   Computer list is sorted by "Company" descending
 
 Actual Results:
-    Computer list is sorted not by "Computer name"
-    Computer list is sorted not by "Introduced"
-    Computer list is sorted not by "Discontinued"
-    Computer list is sorted not by "Company"
+   Computer list is not sorted by "Computer name" ascending
+   Computer list is not sorted by "Computer name" descending
+   Computer list is not sorted by "Introduced" ascending
+   Computer list is not sorted by "Introduced" descending
+   Computer list is not sorted by "Discontinued" ascending
+   Computer list is not sorted by "Discontinued" descending
+   Computer list is not sorted by "Company" ascending
+   Computer list is not sorted by "Company" descending
 
 Result:
     Fail
