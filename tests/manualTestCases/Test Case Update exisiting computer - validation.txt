@@ -3,11 +3,13 @@ Purpose:
 
 Prerequisite:
 	Opened webpage: http://computer-database.herokuapp.com/computers
+	Computer data that will be updated exists in computers list
 
 Test Data:
 	computerName = { Blue Dragon 2 }
     introducedDate = { 20160810 }
     discontinuedDate = { 20170105 }
+    company = { IBM }
 
 Test Steps:
 	Insert <computerName> into "Filter by computer name..." field

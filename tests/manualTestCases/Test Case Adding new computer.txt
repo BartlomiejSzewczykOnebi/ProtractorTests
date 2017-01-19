@@ -19,7 +19,8 @@ Test Steps:
     Choose <company> from companies list
     Click button "Create this computer"
     Message "Done! Computer " + <computerName> + " has been created" is displayed
-    Provide <computerName> into "Filter computer name" field
+    Provide <computerName> into "Filter by computer name" field
+    Check if computer count increased by 1
     Click button "Filter by name"
     Check if computer list contains <computerName>
 

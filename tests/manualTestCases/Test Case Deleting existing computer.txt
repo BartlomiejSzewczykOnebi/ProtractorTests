@@ -3,21 +3,25 @@ Purpose:
 
 Prerequisite:
     Opened webpage: http://computer-database.herokuapp.com/computers
+    Computer data that will be deleted exists in computers list
 
 Test Data:
     computerName = { Blue Dragon }
 
 Test Steps:
-    Provide <computerName> into „Filter computer name” field
-    Click button „Filter by name”
+    Provide <computerName> into "Filter by computer name..." field
+    Click button Filter by name
     Check if computer list contains <computerName>
     Click <computerName> on list
-    Title „Edit computer” is visible
+    Title "Edit computer" is visible
     Value of "Computer name" field equals <computerName>
     Click button "Delete this computer"
-    Provide <computerName> into „Filter computer name” field
-    Click button „Filter by name”
+    Alert "Done! Computer <computerName> has been deleted" is visible
+    Check if computer count decreased by 1
+    Provide <computerName> into "Filter by computer name..." field
+    Click button Filter by name
     Check if computer list not contains <computerName>
+    Info "Nothing to display" is visible
 
 Expected Results:
     Computer name is not displayed in computer list.

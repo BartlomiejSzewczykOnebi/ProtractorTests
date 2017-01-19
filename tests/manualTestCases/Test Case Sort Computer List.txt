@@ -3,6 +3,7 @@ Purpose:
 
 Prerequisite:
     Opened webpage: http://computer-database.herokuapp.com/computers
+    Computer data that will be sorted exists in the application
 
 Test Steps:
     Click on "Computer name" in a table header
@@ -15,8 +16,10 @@ Test Steps:
     Check if Company list is sorted alphabetically
 
 Actual Results:
-    Computer name list is sorted
-    Computer name is displayed in edit window.
+    Computer list is sorted by "Computer name"
+    Computer list is sorted by "Introduced"
+    Computer list is sorted by "Discontinued"
+    Computer list is sorted by "Company"
 
 Result:
     Pass

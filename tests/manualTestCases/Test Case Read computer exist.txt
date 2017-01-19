@@ -3,6 +3,7 @@ Purpose:
 
 Prerequisite:
     Opened webpage: http://computer-database.herokuapp.com/computers
+    Computer data that will be read exists in computers list
 
 Test Data:
     computerName = { Blue Dragon }
@@ -11,11 +12,11 @@ Test Data:
     company = { IBM }
 
 Test Steps:
-    Provide <computerName> into „Filter computer name” field
-    Click button „Filter by name”
+    Provide <computerName> into "Filter by computer name..." field
+    Click button Filter by name
     Check if computer list contains <computerName>
     Click <computerName> on list
-    Title „Edit computer” is visible
+    Title "Edit computer" is visible
     Value of "Computer name" field equals <computerName>
     Value of "Introduced date" field equals <introducedDate>
     Value of "Discontinued date" field equals <discontinuedDate>

@@ -3,6 +3,7 @@ Purpose:
 
 Prerequisite: 
 	Opened webpage: http://computer-database.herokuapp.com/computers
+	Computer data that will be updated exists in computers list
 
 Test Data:
 	computerName = { Blue Dragon }
@@ -17,18 +18,19 @@ Test Steps:
 	Check if computer list contains <computerName>
 	Click <computerName> on the list
 	Title "Edit computer" is visible
-	Value of "Computer name" field equals <newComputerName>
+	Value of "Computer name" field equals <computerName>
 	Change value of field "Computer name" into <newComputerName>
 	Change value of field "Introduced date" into  <introducedDate>
 	Change value of field "Discontinued date" into <discontinuedDate>
 	Choose <company> from companies list
 	Click button "Save this computer"
 	Alert "Done! Computer <newComputerName> has been updated" is visible
-    Provide <newComputerName> into "Filter computer name" field
+	Check if computer count haven't increased or decreased
+    Provide <newComputerName> into "Filter by computer name..." field
     Click button "Filter by name"
     Check if computer list contains <newComputerName>
     Click <newComputerName> on the list
-    Title „Edit computer” is visible
+    Title "Edit computer" is visible
     Value of "Computer name" field equals <newComputerName>
     Value of "Introduced date" field equals <introducedDate>
     Value of "Discontinued date" field equals <discontinuedDate>
