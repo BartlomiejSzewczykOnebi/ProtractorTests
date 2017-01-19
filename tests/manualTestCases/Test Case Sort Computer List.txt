@@ -1,0 +1,25 @@
+Purpose:
+    Check if sorting works properly
+
+Prerequisite:
+    Opened webpage: http://computer-database.herokuapp.com/computers
+
+Test Steps:
+    Click on "Computer name" in a table header
+    Check if Computer name list is sorted alphabetically
+    Click on "Introduced" in a table header
+    Check if Introduced list is sorted alphabetically
+    Click on "Discontinued" in a table header
+    Check if Discontinued list is sorted alphabetically
+    Click on "Company" in a table header
+    Check if Company list is sorted alphabetically
+
+Actual Results:
+    Computer name list is sorted
+    Computer name is displayed in edit window.
+
+Result:
+    Pass
+
+Comments:
+    No bugs found
