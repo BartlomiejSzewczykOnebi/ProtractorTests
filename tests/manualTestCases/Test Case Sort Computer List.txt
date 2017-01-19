@@ -7,13 +7,21 @@ Prerequisite:
 
 Test Steps:
     Click on "Computer name" in a table header
-    Check if Computer name list is sorted alphabetically
+    Check if Computer name list is sorted ascending
+    Click on "Computer name" in a table header
+    Check if Computer name list is sorted descending
     Click on "Introduced" in a table header
-    Check if Introduced list is sorted alphabetically
+    Check if Introduced list is sorted ascending
+    Click on "Introduced" in a table header
+    Check if Introduced list is sorted descending
     Click on "Discontinued" in a table header
-    Check if Discontinued list is sorted alphabetically
+    Check if Discontinued list is sorted ascending
+    Click on "Discontinued" in a table header
+    Check if Discontinued list is sorted descending
     Click on "Company" in a table header
-    Check if Company list is sorted alphabetically
+    Check if Company list is sorted ascending
+    Click on "Company" in a table header
+    Check if Company list is sorted descending
 
 Actual Results:
     Computer list is sorted by "Computer name"
@@ -22,7 +30,7 @@ Actual Results:
     Computer list is sorted by "Company"
 
 Result:
-    Pass
+    Fail
 
 Comments:
-    No bugs found
+    Bugs found: apllication is not sorting elements on the list
