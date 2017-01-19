@@ -11,6 +11,7 @@ Test Data:
     company = { IBM }
 
 Test Steps:
+    Remember computer count number
     Click button "Add a new computer"
     Title "Add a computer" is visible
     Provide <computerName> into "Computer name" field

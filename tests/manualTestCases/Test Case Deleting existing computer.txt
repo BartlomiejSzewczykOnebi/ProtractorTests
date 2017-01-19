@@ -9,6 +9,7 @@ Test Data:
     computerName = { Blue Dragon }
 
 Test Steps:
+    Remember computer count number
     Provide <computerName> into "Filter by computer name..." field
     Click button Filter by name
     Check if computer list contains <computerName>

@@ -13,6 +13,7 @@ Test Data:
     company = { Sony }
 
 Test Steps:
+	Remember computer count number
 	Insert <computerName> into "Filter by computer name..." field
 	Click "Filter by name" button
 	Check if computer list contains <computerName>
