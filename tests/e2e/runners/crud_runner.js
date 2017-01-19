@@ -1,7 +1,10 @@
 exports.config = {
     framework: 'jasmine',
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    specs: ['../tests/create_test.js','../tests/read_test.js','../tests/update_test.js','../tests/delete_test.js'],
+    specs: ['../tests/create_test.js',
+        '../tests/read_test.js',
+        '../tests/update_test.js',
+        '../tests/delete_test.js'],
     suites: {
         createTest: ['../tests/create_test.js'],
         readTest: ['../tests/read_test.js'],
